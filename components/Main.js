@@ -3,18 +3,20 @@ import { View, Text } from 'react-native';
 import { fetchUser } from '../redux/actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+const Tab = createBottomTabNavigator();
 
 export class Main extends Component {
   componentDidMount() {
     this.props.fetchUser();
   }
   render() {
-    const { currentUser } = this.props;
-    if (currentUser === undefined || currentUser === null) return <View></View>;
     return (
-      <View style={{ flex: 1, justifyContent: 'center' }}>
-        <Text>{currentUser.name} is logged </Text>
-      </View>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
     );
   }
 }
