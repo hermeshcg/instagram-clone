@@ -1,8 +1,7 @@
 import React from 'react';
 import { Text, View, Button } from 'react-native';
-// import { Container } from './styles';
 
-function Landing({ navigation }) {
+export default function Landing({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center' }}>
       <Button
@@ -13,5 +12,3 @@ function Landing({ navigation }) {
     </View>
   );
 }
-
-export default Landing;
